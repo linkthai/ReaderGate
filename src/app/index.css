@@ -8,18 +8,22 @@
   src: local('Material Icons'), local('MaterialIcons-Regular'), url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'), url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'), url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 :root {
-  --primary-color-10: #B2EBF2;
-  --primary-color-11: #E0F7FA;
-  --primary-color: #80DEEA;
-  --primary-color-2: #4DD0E1;
-  --primary-color-3: #00BCD4;
-  --primary-color-4: #00ACC1;
+  --primary-color-10: #c4ffe9;
+  --primary-color-11: #defcf4;
+  --primary-color: #00bc8c;
+  --primary-color-2: #06a872;
+  --primary-color-3: #09bc7e;
+  --primary-color-4: #098953;
   --secondary-color: #EF5350;
   --secondary-color-2: #E57373;
   --secondary-color-3: #EF9A9A;
   --secondary-color-4: #FFCDD2;
   --secondary-color-10: #D32F2F;
   --black: #757575;
+}
+     
+md-content.body {     
+    background-color:#222222;
 }
 .md-button {
   text-transform: none;
@@ -71,6 +75,7 @@ html {
 .mid-content {
   width: 90%;
   margin: auto;
+  background-color: #444;
 }
 [layout=row] {
   flex-direction: row;
@@ -169,8 +174,7 @@ md-sidenav.md-locked-open.md-sidenav-left {
 }
 .main-content {
   margin: 20px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+     
 }
 .right-bar-header {
   background-color: var(--secondary-color);
@@ -375,20 +379,21 @@ md-sidenav.md-locked-open.md-sidenav-left {
 .title-name {
   padding-left: 20px;
   padding-right: 20px;
-  font-size: 35px;
+  margin-top: 10px;
+     margin-bottom:10px;
+  font-size: 30px;
   text-align: left;
-  color: var(--black);
+  color: lightgray;
 }
 .title-info-wrapper {
-  margin: 5px;
   margin-left: 20px;
   margin-right: 20px;
   font-size: 18px;
   line-height: normal;
 }
 .title-info {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .title-wrapper {
   max-width: 900px;
@@ -428,12 +433,17 @@ md-sidenav.md-locked-open.md-sidenav-left {
   height: 15px;
   padding: 15px;
   outline-style: none;
+     background-color: white;
 }
+
 .volume-item:hover {
   color: var(--primary-color);
   animation: textcyan 1s;
   cursor: hand;
   cursor: pointer;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: var(--primary-color-11);
 }
 .volume-list-header {
   font-size: 22px;
@@ -652,4 +662,46 @@ md-sidenav.md-locked-open.md-sidenav-left {
   -webkit-transform: rotateZ(360deg);
   -moz-transform: rotateZ(360deg);
   transform: rotateZ(360deg);
+}
+
+.hover-disable {
+     pointer-events: none;
+  }
+
+.hover-hand:hover {
+     cursor: hand;
+     cursor: pointer;
+}
+ 
+ .chapter-dropbox {
+     height: 100%;
+      margin-top: 10px;
+ }
+ 
+ .hide-content {
+     display:none;
+ }
+ 
+ .headroom {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     transition: all .2s ease-in-out;
+ }
+ 
+ .headroom--unpinned {
+     top: -100px;
+ }
+ 
+ .headroom--pinned {
+     top: 0;
+ }
+
+.pager {
+     margin: 0px;
+     margin-left: 10px;
+     margin-top: 15px;
+     cursor: hand;
+     cursor: pointer;
 }

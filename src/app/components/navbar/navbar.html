@@ -1,5 +1,6 @@
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+     <div class="col-xs-1"></div>
+  <div class="container-fluid col-xs-10">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -7,13 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">ReaderGate</a>
+      <a class="" href="#/">
+      <img id="logo" src="assets/images/logo-reader-gate.png" /></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#/">Home</a></li>
-        <li><a href="#archive">Archive</a></li>
+        <li><a href="#archive">Index</a></li>
+        <li><a href="#archive">Subscriptions</a></li>
         <li><a href="#about">About</a></li>
 <!--
         <li class="dropdown">
@@ -30,15 +32,48 @@
         </li>
 -->
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li uib-dropdown data-toggle="tooltip" title="Bookmark">
+    <a href="" uib-dropdown-toggle class="hover-hand"><i class="glyphicon glyphicon-bookmark"></i></a>
+    <ul uib-dropdown-menu>
+        <li class="hover-hand"><a ui-sref="a">Dragonball - Chapter 235</a></li>
+        <li class="hover-hand"><a ui-sref="b">One Piece - Chapter 9540</a></li>
+        <li class="hover-hand"><a ui-sref="d">Oyasumi Punpun unread!</a></li>
+    </ul>
+</li>
+        
+        <li uib-dropdown data-toggle="tooltip" title="Notification">
+    <a href="" uib-dropdown-toggle><i class="glyphicon glyphicon-bell"></i></a>
+    <ul uib-dropdown-menu>
+        <li class="hover-hand"><a ui-sref="a">Uzumaki - Chapter 12 updated!</a></li>
+        <li class="hover-hand"><a ui-sref="b">Naruto - Chapter 1240 updated!</a></li>
+        <li class="hover-hand"><a ui-sref="c">Death Note - Chapter 5 updated!</a></li>
+        <li class="hover-hand"><a ui-sref="d">New message from ReaderGate!</a></li>
+    </ul>
+</li>
+        
+        <li><a href="#/"><img id="user-avatar" src="assets/images/user.png" /> Mr. A</a></li>
+        <li><a href="#/">Logout</a></li>
+      </ul>
+      
+      <form ng-submit="vm.goSearchQuery()" class="navbar-form navbar-right" role="search">
+    <div class="input-group add-on">
+      <input id="search_input" class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+      <div class="input-group-btn">
+        <button ng-click="vm.goSearch()" id="search_button" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+<!--
+  </form>
+      <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
+          <i class="cyan material-icons md-12 form-control-feedback">search</i>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">User</a></li>
-      </ul>
+-->
+      
     </div>
   </div>
 </nav>

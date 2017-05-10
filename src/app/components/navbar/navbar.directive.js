@@ -93,11 +93,15 @@
       };
 
       vm.goSearchQuery = function() {
-        $location.path('/search/' + vm.search);
+           
+           if (document.getElementById("search_input").value != "")
+           {
+        $location.path('/search/' +           document.getElementById("search_input").value);
+           }
+           
       }
 
       vm.goSearch = function() {
-        $location.path('/search');
       }
 
       firebase.auth().onAuthStateChanged(function(user) {
@@ -119,6 +123,11 @@
           $scope.checkPermissionNonUser();
         }
       });
+         
+         document.getElementById("search_button").onclick= function() {
+          
+        $location.path('/search/' + document.getElementById("search_input").value);
+};
     }
   }
 

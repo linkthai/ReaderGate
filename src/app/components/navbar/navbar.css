@@ -8,8 +8,9 @@
   box-shadow: 0 4px 2px -2px lightgrey;
 }
 #logo {
-  width: 35px;
+  width: 180px;
   height: auto;
+  margin-top: 15px;
   margin-right: 5px;
 }
 #logo-button {
@@ -79,4 +80,21 @@
 }
 .display-name:hover {
   color: #EF9A9A;
+}
+#user-avatar {
+     width: 30px;
+     margin-right: 5px;
+     margin-top: -10px;
+     margin-bottom: -10px;
+}
+.header-icon {     
+     width: 25px;
+     margin-top: -10px;
+     margin-bottom: -10px;
+}
+.glyphicon-bell {
+    font-size: 18px;
+}
+.glyphicon-bookmark {
+    font-size: 18px;
 }

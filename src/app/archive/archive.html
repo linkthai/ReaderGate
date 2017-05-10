@@ -5,7 +5,7 @@
       <nav-bar md-whiteframe-z2></nav-bar>
     </header>
 
-    <md-content class="mid-content length" data-ng-controller="ArchiveController as vm">
+    <md-content class="mid-content length" data-ng-controller="ArchiveController as vm" style="background-color:white">
       <div class="main-content" layout="column" layout-align="space-around stretch">
 
         <div class="sort-bar" layout="column" layout-gt-sm="row" layout-align="center center">
@@ -22,12 +22,12 @@
           </md-content>
           <md-divider class="mid-content bg-cyan"></md-divider>
 
-          <md-content class="mid-content table-header" layout="row" layout="start center">
+          <md-content class="mid-content table-header" layout="row" layout="start center"  style="background-color:white">
             <div flex=50 flex-xs=100 flex-sm=100>Title</div>
             <div flex=40 hide-xs hide-sm>Author</div>
             <div flex=10 hide-xs hide-sm>Status</div>
           </md-content>
-          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center">
+          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center" style="background-color:white">
             <div class="table-list bottom-border-animation" ng-repeat="item in vm.comicList | orderBy:'title' | filter: vm.filterAlphabet" layout="row" layout="start center" ng-click="vm.go(item.data)">
               <div flex=50 flex-xs=100 flex-sm=100>{{item.title}}</div>
               <div flex=40 hide-xs hide-sm>{{item.author}}</div>
@@ -44,12 +44,12 @@
           </md-content>
           <md-divider class="mid-content bg-cyan"></md-divider>
 
-          <md-content class="mid-content table-header" layout="row" layout="start center">
+          <md-content class="mid-content table-header" layout="row" layout="start center" style="background-color:white">
             <div flex=50 flex-xs=100 flex-sm=100>Title</div>
             <div flex=40 hide-xs hide-sm>Author</div>
             <div flex=10 hide-xs hide-sm>Views</div>
           </md-content>
-          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center">
+          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center" style="background-color:white">
             <div class="table-list bottom-border-animation" ng-repeat="item in vm.comicList | orderBy: vm.popularReverse" layout="row" layout="start center" ng-click="vm.go(item.data)">
               <div flex=50 flex-xs=100 flex-sm=100>{{item.title}}</div>
               <div flex=40 hide-xs hide-sm>{{item.author}}</div>
@@ -67,12 +67,12 @@
           </md-content>
           <md-divider class="mid-content bg-cyan"></md-divider>
 
-          <md-content class="mid-content table-header" layout="row" layout="start center">
+          <md-content class="mid-content table-header" layout="row" layout="start center" style="background-color:white">
             <div flex=50 flex-xs=100 flex-sm=100>Title</div>
             <div flex=40 hide-xs hide-sm>Author</div>
             <div flex=10 hide-xs hide-sm>Status</div>
           </md-content>
-          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center">
+          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center" style="background-color:white">
             <div class="table-list bottom-border-animation" ng-repeat="item in vm.comicList | orderBy: vm.reverse" layout="row" layout="start center" ng-click="vm.go(item.data)">
               <div flex=50 flex-xs=100 flex-sm=100>{{item.title}}</div>
               <div flex=40 hide-xs hide-sm>{{item.author}}</div>

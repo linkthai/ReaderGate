@@ -19,6 +19,9 @@
 
     vm.go = function(chap, name) {
       vm.increaseViews();
+         
+             localStorage.setItem("SeriesTitle", vm.title);
+             localStorage.setItem("pageLayout", "All pages");
       $location.path('/archive/' + vm.titleId + '/' + chap + '/' + name);
     };
 

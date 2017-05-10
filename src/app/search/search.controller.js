@@ -12,6 +12,7 @@
     vm.searchString = $routeParams.param1;
     vm.comicList = [];
     vm.comicListResult = [];
+    vm.chunkData = [];
 
     $scope.$on('$viewContentLoaded', function() {
       window.scrollTo(0, 0);
@@ -23,6 +24,15 @@
 
       vm.search();
     }
+    
+    
+    vm.chunk = function(arr, size) {
+  var newArr = [];
+  for (var i=0; i<arr.length; i+=size) {
+    newArr.push(arr.slice(i, i+size));
+  }
+  return newArr;
+}
 
     vm.filterResult = function() {
 
@@ -38,6 +48,8 @@
           vm.comicListResult.push(vm.comicList[i]);
         }
       }
+         
+      vm.chunkData = vm.chunk(vm.comicListResult, 4);
     }
 
     vm.search = function() {
@@ -71,11 +83,14 @@
             data: childData,
             title: childData._title,
             author: childData._author,
+            cover: childData._cover,
+            genres: childData._genres,
             status: 'Incomplete'
           });
         });
       });
     }
+    
 
     vm.search();
   }

@@ -5,47 +5,39 @@
       <nav-bar md-whiteframe-z2></nav-bar>
     </header>
 
-    
     <md-content class="mid-content" data-ng-controller="SearchController as vm">
       <div class="main-content">
         <div class="length" layout-align="space-between center">
 
-<!--
           <h1 class="cyan">Search</h1>
           <md-divider class="bg-cyan max-width"></md-divider>
--->
 
-          <form class="search-content" layout-gt-xs="row" layout="column" layout-align="space-around center" style="margin-top: -10px;">
+          <form class="search-content" layout-gt-xs="row" layout="column" layout-align="space-around center">
             <input flex-gt-xs=70 flex=100 class="search-input" type="text" ng-model="vm.searchString" />
-            <button ng-click="vm.searchPressed()" flex-gt-xs=30 flex=100 class="button-submit" type="submit" style="height: 40px;">Search</button>
+            <button ng-click="vm.searchPressed()" flex-gt-xs=30 flex=100 class="button-submit" type="submit">Search</button>
 
           </form>
 
-          <div class="search-content result-number" style="margin-top: -5px; color: #EF9A9A;">{{vm.comicListResult.length}} results</div>
+          <div class="search-content result-number">{{vm.comicListResult.length}} results</div>
+
+          <div class="search-content table-header" layout="row" layout="start center">
+            <div flex=60 flex-xs=100 flex-sm=100>Title</div>
+            <div flex=20 hide-xs hide-sm>Author</div>
+            <div flex=20 hide-xs hide-sm>Status</div>
+          </div>
 
           <div class="search-content">
-<!--
             <div ng-click="vm.goToTitle(item.data._bookId)" class="search-result" layout="row" layout="start center" ng-repeat-start="item in vm.comicListResult">
               <div flex=60 flex-xs=100 flex-sm=100>{{item.title}}</div>
               <div flex=20 hide-xs hide-sm>{{item.author}}</div>
               <div flex=20 hide-xs hide-sm>{{item.status}}</div>
             </div>
--->
-           
-           <div class="row" ng-repeat="rows in vm.chunkData">
-  <div class="col-sm-3" style="padding: 0px;"  ng-repeat="item in rows">
-                
-                  <com-card layout-fill ng-click="vm.goToTitle(item.data._bookId)" book-genres="{{item.genres}}" book-author="{{item.author}}" book-title="{{item.title}}" book-cover="{{item.cover}}"></com-card>
             <md-divider ng-repeat-end></md-divider>
-               
-                </div>
-</div>
           </div>
 
         </div>
       </div>
     </md-content>
-    
   </md-content>
 
 </div>
