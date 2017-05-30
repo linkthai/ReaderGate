@@ -705,3 +705,69 @@ md-sidenav.md-locked-open.md-sidenav-left {
      cursor: hand;
      cursor: pointer;
 }
+
+.panel-default > .panel-heading, .panel-default > .btn {
+      background: #666;
+     border: none;
+
+}
+.panel-default > .btn:hover {
+      background: #444;
+}
+
+.panel-primary > .panel-heading, .panel-primary > .btn {
+      background: #00bc8c;
+     border: none;
+
+}
+.panel-primary > .btn:hover {
+      background: #06a872;
+}
+.panel-info > .panel-heading, .panel-info > .btn {
+      background: #06a872;
+     border: none;
+}
+.panel-info > .btn:hover {
+      background: #098953;
+}
+.bg-manga {
+  background: url('../assets/images/manga-shelf.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+     max-height: 500px;
+     
+  -webkit-filter: brightness(85%);
+  -moz-filter: brightness(85%);
+  -o-filter: brightness(85%);
+  -ms-filter: brightness(85%);
+  filter: brightness(85%);
+    
+}
+.btn-cyan {
+     background: #06a872;
+     margin: 10px;
+     border: none;
+}
+.btn-cyan:hover {
+      background: #098953;
+     border: none;
+}
+.btn-cyan:active {
+      background: #098953;
+     border: none;
+}
+
+.btn-payment {
+      background-color: #777;
+     border: 2px solid #777;
+     border-radius: 3px;
+     margin-left: 4px;
+}
+
+.btn-payment:hover {
+      background-color: #098953;
+     border: 2px solid #098953;
+     border-radius: 3px;
+}

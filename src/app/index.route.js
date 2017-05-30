@@ -92,6 +92,11 @@
                 , controller: 'PaymentController'
                 , controllerAs: 'vm'
             })
+            .when('/payment-success', {
+                templateUrl: 'app/payment/payment-success.html'
+                , controller: 'PaymentController'
+                , controllerAs: 'vm'
+            })
             .otherwise({
                 redirectTo: '/'
             });

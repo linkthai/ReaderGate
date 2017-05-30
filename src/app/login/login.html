@@ -5,7 +5,7 @@
       <nav-bar md-whiteframe-z2></nav-bar>
     </header>
 
-    <md-content class="mid-content" data-ng-controller="LoginController as vm">
+    <md-content class="mid-content" data-ng-controller="LoginController as vm"style="background-color:white">
       <div class="main-content">
         <div class="length" layout-align="space-between center">
             <form flex=100 layout="column" name="myform" ng-submit="register()" layout-align="space-between center" novalidate>
@@ -17,13 +17,13 @@
 
               <fieldset flex class="form-container" layout="column" layout-align="space-between center">
 
-                <input class="form-input" type="email" name="email" placeholder="Email" ng-model="vm.email" ng-required="true">
+                <input class="form-input" type="email" name="email" placeholder="Email" ng-model="vm.email" ng-required="true" style="border: 1px solid lightgray;">
 
-                <input class="form-input" type="password" name="password" placeholder="Password" ng-model="vm.password" ng-required="true">
+                <input class="form-input" type="password" name="password" placeholder="Password" ng-model="vm.password" ng-required="true" style="border: 1px solid lightgray;">
 
               </fieldset>
 
-              <button class="button-submit" ng-click="vm.handleLogin()">Login</button>
+              <button class="button-submit" ng-click="vm.go('main_sub')">Login</button>
               <span class="link-text"><a ng-href="#/register">Don't have an account? Register here!</a></span>
               <span class="link-text"><a ng-href="#/register">Forget your password?</a></span>
 

@@ -4,9 +4,48 @@
     <header md-whiteframe-z2 md-raised>
       <nav-bar></nav-bar>
     </header>
+<div class="jumbotron" style="width: 100%; margin: auto; margin-bottom: 30px;">	
+	<h1 style="color: #00bc8c; font-size: 36px; margin-top:-10px;">Subscribe today!</h1>
+	<p style="color: white; text-align:center; margin-bottom:20px;"> Get access to hundred of titles for a limited price.</p>
+
+	<div layout="column" layout-gt-xs="row" style="margin: auto; margin-bottom:-20px; width: 90%">
+		
+		<div class="col-sm-4" layout="column">	
+			<div style="text-align:center; margin-left:20px; margin-right:20px; background-color: white;" class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title" style="font-size: 30px; "><span class = "bold">2.99$</span></div>
+				</div>
+				<div class="panel-body" style="color:#888;">Access to all titles<hr>New chapter 3 days after released<hr>No download options</div>
+				<a href="#payment" class="btn btn-default" style="margin-top:10px; margin-bottom:10px;">Select</a>
+			</div>
+		</div>
+		
+		<div class="col-sm-4" layout="column">
+			<div style="text-align:center;  margin-left:20px; margin-right:20px; background-color: white;" class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="panel-title" style="font-size: 30px;"><span class = "bold">4.99$</span></div>
+				</div>
+				<div class="panel-body" style="color:#777;">Access to all titles<hr>New chapter right after released<hr>No download options</div>
+				<a href="#payment" class="btn btn-primary" style="margin-top:10px; margin-bottom:10px;">Select</a>
+			</div>
+		</div>
+		
+		<div class="col-sm-4" layout="column">			
+			<div style="text-align:center; margin-left: 20px; margin-right:20px; background-color: white;" class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title" style="font-size: 30px; "><span class = "bold">9.99$</span></div>
+				</div>
+				<div class="panel-body" style="color:#666;">Access to all titles<hr>New chapter right after released<hr>Download options</div>
+				<a href="#payment" class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">Select</a>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="container-fluid">
 <md-content class="mid-content" data-ng-controller="MainSubController as vm">
+
+
 
 <div class="header-text" ng-click="vm.goToSortArchive(2, '/archive')" style="background-color: #444; margin-bottom:12px; margin-top: -12px; color: #24e59e;">
               <md-icon class="main-icon-aligned fab-icon-spin"><i class="material-icons md-36" style="color: #24e59e;">new_releases</i></md-icon>

@@ -8,10 +8,16 @@
   box-shadow: 0 4px 2px -2px lightgrey;
 }
 #logo {
-  width: 180px;
+  width: 160px;
   height: auto;
   margin-top: 15px;
-  margin-right: 5px;
+  margin-right: 15px;
+}
+#logo-bare {
+  width: 30px;
+  height: auto;
+  margin-top: 15px;
+  margin-right: 15px;
 }
 #logo-button {
   min-width: 80px;
@@ -98,3 +104,4 @@
 .glyphicon-bookmark {
     font-size: 18px;
 }
+

@@ -18,6 +18,11 @@
     $scope.$on('$viewContentLoaded', function() {
       window.scrollTo(0, 0);
     });
+       
+       
+            vm.go = function (path) {
+                $location.path('/' + path);
+            }
 
     vm.handleLogin = function() {
       firebase.auth().signInWithEmailAndPassword(vm.email, vm.password)

@@ -1,97 +1,69 @@
 <div layout="vertical" layout-fill>
 
   <md-content flex class=body>
-    <header>
-      <nav-bar md-whiteframe-z2></nav-bar>
+    <header md-whiteframe-z2 md-raised>
+      <nav-bar></nav-bar>
     </header>
+<div class="jumbotron" style="width: 100%; margin: auto;">	
+	<h1 style="color: #00bc8c; font-size: 36px; margin-top:-10px;">Subscribe today!</h1>
+	<p style="color: white; text-align:center; margin-bottom:20px;"> Get access to hundred of titles for a limited price.</p>
 
-    <md-content class="mid-content length" data-ng-controller="ArchiveController as vm" style="background-color:white">
-      <div class="main-content" layout="column" layout-align="space-around stretch">
+	<div layout="column" layout-gt-xs="row" style="margin: auto; margin-bottom:-20px; width: 90%">
+		
+		<div class="col-sm-4" layout="column">	
+			<div style="text-align:center; margin-left:20px; margin-right:20px; background-color: white;" class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title" style="font-size: 30px; "><span class = "bold">2.99$</span></div>
+				</div>
+				<div class="panel-body" style="color:#888;">Access to all titles<hr>New chapter 3 days after released<hr>No download options</div>
+				<a href="#payment" class="btn btn-default" style="margin-top:10px; margin-bottom:10px;">Select</a>
+			</div>
+		</div>
+		
+		<div class="col-sm-4" layout="column">
+			<div style="text-align:center;  margin-left:20px; margin-right:20px; background-color: white;" class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="panel-title" style="font-size: 30px;"><span class = "bold">4.99$</span></div>
+				</div>
+				<div class="panel-body" style="color:#777;">Access to all titles<hr>New chapter right after released<hr>No download options</div>
+				<a href="#payment" class="btn btn-primary" style="margin-top:10px; margin-bottom:10px;">Select</a>
+			</div>
+		</div>
+		
+		<div class="col-sm-4" layout="column">			
+			<div style="text-align:center; margin-left: 20px; margin-right:20px; background-color: white;" class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title" style="font-size: 30px; "><span class = "bold">9.99$</span></div>
+				</div>
+				<div class="panel-body" style="color:#666;">Access to all titles<hr>New chapter right after released<hr>Download options</div>
+				<a href="#payment" class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">Select</a>
+			</div>
+		</div>
+	</div>
+</div>
 
-        <div class="sort-bar" layout="column" layout-gt-sm="row" layout-align="center center">
-          <button class="sort-button" flex=100 flex-gt-sm data-ng-click="vm.changeType($index)" data-ng-class="{'sort-button-on': selectedSortIndex === $index}" flex data-ng-repeat="item in vm.sortType">
-            {{ item.type }}
-          </button>
-        </div>
+	<md-content class="mid-content bg-manga" style="width:100%; height: 800px;">
 
-        <div layout="column" ng-hide="selectedSortIndex != 0">
-          <md-content flex-gt-sm=80 class="alphabet-container" layout-align="center center">
-            <button class="alphabet-button" ng-repeat="char in vm.alphabet" ng-click="vm.changeAlphabet(char)" ng-class="{'alphabet-button-active': vm.selectedAlphabet === char}">
-              {{ char }}
-            </button>
-          </md-content>
-          <md-divider class="mid-content bg-cyan"></md-divider>
+<div style="margin: auto; width: 90%; background-color: black; background: rgba(0, 0, 0, 0.4); height: 100%">
 
-          <md-content class="mid-content table-header" layout="row" layout="start center"  style="background-color:white">
-            <div flex=50 flex-xs=100 flex-sm=100>Title</div>
-            <div flex=40 hide-xs hide-sm>Author</div>
-            <div flex=10 hide-xs hide-sm>Status</div>
-          </md-content>
-          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center" style="background-color:white">
-            <div class="table-list bottom-border-animation" ng-repeat="item in vm.comicList | orderBy:'title' | filter: vm.filterAlphabet" layout="row" layout="start center" ng-click="vm.go(item.data)">
-              <div flex=50 flex-xs=100 flex-sm=100>{{item.title}}</div>
-              <div flex=40 hide-xs hide-sm>{{item.author}}</div>
-              <div flex=10 hide-xs hide-sm>{{item.status}}</div>
+			<div class="header-text" style="background: none;">
+              <md-icon class="main-icon-aligned fab-icon-spin"><i class="material-icons md-36" style="color: #24e59e;">stars</i></md-icon>
+              READGATE OFFERS
+              <md-icon class="main-icon-aligned right-bar-icon"><i class="cyan material-icons md-36" style="color: #24e59e;">navigate_next</i></md-icon>
             </div>
-          </md-content>
-        </div>
-
-        <div layout="column" ng-hide="selectedSortIndex != 1">
-          <md-content class="alphabet-container longtext-container" layout="column" layout-gt-xs="row" layout-align="space-around center">
-            <button class="alphabet-button longtext-button" ng-repeat="item in vm.popularCategory" ng-click="vm.changePopularCategory(item.name)" ng-class="{'alphabet-button-active': vm.selectedPopularCategory === item.name}">
-              {{ item.name }}
-            </button>
-          </md-content>
-          <md-divider class="mid-content bg-cyan"></md-divider>
-
-          <md-content class="mid-content table-header" layout="row" layout="start center" style="background-color:white">
-            <div flex=50 flex-xs=100 flex-sm=100>Title</div>
-            <div flex=40 hide-xs hide-sm>Author</div>
-            <div flex=10 hide-xs hide-sm>Views</div>
-          </md-content>
-          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center" style="background-color:white">
-            <div class="table-list bottom-border-animation" ng-repeat="item in vm.comicList | orderBy: vm.popularReverse" layout="row" layout="start center" ng-click="vm.go(item.data)">
-              <div flex=50 flex-xs=100 flex-sm=100>{{item.title}}</div>
-              <div flex=40 hide-xs hide-sm>{{item.author}}</div>
-              <div flex=10 hide-xs hide-sm>{{item.views}}</div>
-            </div>
-          </md-content>
-        </div>
-
-
-        <div layout="column" ng-hide="selectedSortIndex != 2">
-          <md-content class="alphabet-container longtext-container" layout="column" layout-gt-xs="row" layout-align="space-around center">
-            <button class="alphabet-button longtext-button" ng-repeat="item in vm.newestCategory" ng-click="vm.changeNewestCategory(item.name)" ng-class="{'alphabet-button-active': vm.selectedNewestCategory === item.name}">
-              {{ item.name }}
-            </button>
-          </md-content>
-          <md-divider class="mid-content bg-cyan"></md-divider>
-
-          <md-content class="mid-content table-header" layout="row" layout="start center" style="background-color:white">
-            <div flex=50 flex-xs=100 flex-sm=100>Title</div>
-            <div flex=40 hide-xs hide-sm>Author</div>
-            <div flex=10 hide-xs hide-sm>Status</div>
-          </md-content>
-          <md-content class="mid-content table-wrapper" layout="column" layout="stretch center" style="background-color:white">
-            <div class="table-list bottom-border-animation" ng-repeat="item in vm.comicList | orderBy: vm.reverse" layout="row" layout="start center" ng-click="vm.go(item.data)">
-              <div flex=50 flex-xs=100 flex-sm=100>{{item.title}}</div>
-              <div flex=40 hide-xs hide-sm>{{item.author}}</div>
-              <div flex=10 hide-xs hide-sm>{{item.status}}</div>
-            </div>
-          </md-content>
-
-        </div>
-
-        <md-button class="md-fab md-fab-bottom-right md-accent fixed-fab" ng-show="vm.adminPermission" ng-click="vm.addSeries()">
-              <md-icon><i class="material-icons md-24 fab-icon-spin">library_add</i>
-              </md-icon>
-              <md-tooltip md-direction="left">
-                   Add new series
-              </md-tooltip>
-         </md-button>
-
-      </div>
-    </md-content>
-  </md-content>
-
+			<div style="background-color: none; color: white; padding-left: 30px;" >
+				<p style=" color: rgba(255, 255, 255, 1); opacity: 1; font-size: 20px;"></br>
+					○ Unlimited read experience for a limited monthly free </br></br>
+					○ A brigde between authors and readers for better benefit to both parties</br></br>
+					○  Fast updates of new release</br></br>
+					○  Sharing account</br>
+				</p>
+			</div>
+            
+    
+    
+	<md-divider class=""></md-divider>
+	
+	</div>
+</md-content>
 </div>
