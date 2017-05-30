@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function LoginController($scope, $location, $window) {
+            
     var vm = this;
     var user = firebase.auth().currentUser;
 

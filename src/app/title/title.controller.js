@@ -1,134 +1,139 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('readerGate')
-    .controller('TitleController', TitleController);
+    angular
+        .module('readerGate')
+        .controller('TitleController', TitleController);
 
-  /** @ngInject */
-  function TitleController($location, $routeParams, $window, $timeout, $scope, bookService) {
-    var vm = this;
+    /** @ngInject */
+    function TitleController($location, $routeParams, $window, $timeout, $scope, bookService) {
 
-    vm.titleId = $routeParams.param1;
-    vm.nextEnabled = true;
-    vm.previousEnabled = true;
+        var vm = this;
 
-    $scope.$on('$viewContentLoaded', function() {
-      window.scrollTo(0, 0);
-    });
+        vm.titleId = $routeParams.param1;
+        vm.nextEnabled = true;
+        vm.previousEnabled = true;
 
-    vm.go = function(chap, name) {
-      vm.increaseViews();
-         
-             localStorage.setItem("SeriesTitle", vm.title);
-             localStorage.setItem("pageLayout", "All pages");
-      $location.path('/archive/' + vm.titleId + '/' + chap + '/' + name);
-    };
-
-    vm.changeVol = function() {
-      vm.go(vm.selectedChapter.vol, vm.selectedChapter.chap);
-    }
-
-    vm.editSeries = function() {
-      $location.path('/edit-series/' + vm.titleId);
-    }
-
-    vm.addChapter = function() {
-      bookService.addValue($scope.bookData);
-      $location.path('/add-chapter/' + vm.titleId);
-    }
-
-    vm.increaseViews = function() {
-      var auth = firebase.auth();
-      var database = firebase.database();
-
-      database.ref('series/' + vm.titleId).once('value', function(snapshot) {
-          var postData = snapshot.val();
-          postData._views = postData._views + 1;
-          var updates = {};
-          updates['/series/' + vm.titleId] = postData;
-          database.ref().update(updates);
-      });
-    }
-
-    $scope.bookData;
-
-    vm.title;
-    vm.genres;
-    vm.author;
-    vm.cover;
-    vm.description;
-    vm.status;
-    vm.views;
-
-    function getSeriesById(seriesId) {
-      var auth = firebase.auth();
-      var database = firebase.database();
-
-      database.ref('series/' + seriesId).on('value', function(snapshot) {
-        $scope.bookData = snapshot.val();
-          $timeout(function () {
-              $scope.$apply();
-          }, 1);
-
-          vm.title = $scope.bookData._title;
-          vm.genres = $scope.bookData._genres;
-          vm.author = $scope.bookData._author;
-          vm.cover = $scope.bookData._cover;
-          vm.description = $scope.bookData._description;
-          vm.status = $scope.bookData._status;
-          vm.views = $scope.bookData._views;
+        $scope.$on('$viewContentLoaded', function () {
+            window.scrollTo(0, 0);
         });
-    }
-    getSeriesById(vm.titleId);
 
-    $scope.chapList = [];
-    function getChaptersBySeries(seriesId) {
-      var auth = firebase.auth();
-      var database = firebase.database();
+        vm.go = function (chap, name) {
 
-      database.ref('chapters/' + seriesId).on('value', function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-          var childData = childSnapshot.val();
-          $scope.chapList.push({
-            data: childData,
-            chapterId: childData._chapterId,
-            name: childData._name
-          })
-          $timeout(function () {
-              $scope.$apply();
-          }, 10);
-        });
-      });
-    }
-    getChaptersBySeries(vm.titleId);
+            ga('send', 'event', 'Chapters', 'click', vm.title + ': ' + chap);
+            
+            vm.increaseViews();
 
-    $scope.checkAdminPermission = function(uid) {
-      var database = firebase.database();
+            localStorage.setItem("SeriesTitle", vm.title);
+            localStorage.setItem("pageLayout", "All pages");
+            $location.path('/archive/' + vm.titleId + '/' + chap + '/' + name);
+        };
 
-      database.ref('users/' + uid).on('value', function(snapshot) {
-        vm.adminPermission = snapshot.val().admin;
-      });
-      (function myLoop(i) {
-        setTimeout(function() {
-           $scope.$apply();//  your code here
-          if (--i) myLoop(i) //  decrement i and call myLoop again if i > 0
-        }, 50)
-      })(100);
-    }
+        vm.changeVol = function () {
+            vm.go(vm.selectedChapter.vol, vm.selectedChapter.chap);
+        }
 
-    vm.adminPermission = false;
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        $scope.checkAdminPermission(user.uid);
+        vm.editSeries = function () {
+            $location.path('/edit-series/' + vm.titleId);
+        }
 
-      } else {
-        // No user is signed in.
+        vm.addChapter = function () {
+            bookService.addValue($scope.bookData);
+            $location.path('/add-chapter/' + vm.titleId);
+        }
+
+        vm.increaseViews = function () {
+            var auth = firebase.auth();
+            var database = firebase.database();
+
+            database.ref('series/' + vm.titleId).once('value', function (snapshot) {
+                var postData = snapshot.val();
+                postData._views = postData._views + 1;
+                var updates = {};
+                updates['/series/' + vm.titleId] = postData;
+                database.ref().update(updates);
+            });
+        }
+
+        $scope.bookData;
+
+        vm.title;
+        vm.genres;
+        vm.author;
+        vm.cover;
+        vm.description;
+        vm.status;
+        vm.views;
+
+        function getSeriesById(seriesId) {
+            var auth = firebase.auth();
+            var database = firebase.database();
+
+            database.ref('series/' + seriesId).on('value', function (snapshot) {
+                $scope.bookData = snapshot.val();
+                $timeout(function () {
+                    $scope.$apply();
+                }, 1);
+
+                vm.title = $scope.bookData._title;
+                vm.genres = $scope.bookData._genres;
+                vm.author = $scope.bookData._author;
+                vm.cover = $scope.bookData._cover;
+                vm.description = $scope.bookData._description;
+                vm.status = $scope.bookData._status;
+                vm.views = $scope.bookData._views;
+            });
+        }
+        getSeriesById(vm.titleId);
+
+        $scope.chapList = [];
+
+        function getChaptersBySeries(seriesId) {
+            var auth = firebase.auth();
+            var database = firebase.database();
+
+            database.ref('chapters/' + seriesId).on('value', function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    var childData = childSnapshot.val();
+                    $scope.chapList.push({
+                        data: childData
+                        , chapterId: childData._chapterId
+                        , name: childData._name
+                    })
+                    $timeout(function () {
+                        $scope.$apply();
+                    }, 10);
+                });
+            });
+        }
+        getChaptersBySeries(vm.titleId);
+
+        $scope.checkAdminPermission = function (uid) {
+            var database = firebase.database();
+
+            database.ref('users/' + uid).on('value', function (snapshot) {
+                vm.adminPermission = snapshot.val().admin;
+            });
+            (function myLoop(i) {
+                setTimeout(function () {
+                    $scope.$apply(); //  your code here
+                    if (--i) myLoop(i) //  decrement i and call myLoop again if i > 0
+                }, 50)
+            })(100);
+        }
+
         vm.adminPermission = false;
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in.
+                $scope.checkAdminPermission(user.uid);
 
-        $scope.$apply();
-      }
-    });
-  }
+            } else {
+                // No user is signed in.
+                vm.adminPermission = false;
+
+                $scope.$apply();
+            }
+        });
+    }
 })();

@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function ProfileController($scope, $window, $location) {
+      
     var vm = this;
     vm.email = '';
     vm.uid = '';

@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function RegisterController($scope, $location, $window) {
-
+      
     var vm = this;
     vm.firstname = '';
     vm.lastname = '';

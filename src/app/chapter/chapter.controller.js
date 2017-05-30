@@ -1,12 +1,13 @@
 (function () {
     'use strict';
-
+    
     angular
         .module('readerGate')
         .controller('ChapterController', ChapterController);
 
     /** @ngInject */
     function ChapterController($location, $routeParams, $scope, $timeout, bookService) {
+
         var vm = this;
         vm.isFirst = false;
         vm.isLast = false;

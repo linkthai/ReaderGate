@@ -40,6 +40,7 @@
 
   /** @ngInject */
   function ManagementController($location, $routeParams, $scope, $timeout, bookService) {
+      
     var vm = this;
     vm.seriesName = "title";
 

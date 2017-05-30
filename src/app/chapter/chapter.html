@@ -5,29 +5,29 @@
         <md-content class="mid-content" data-ng-controller="ChapterController as vm">
             <headroom>
                 <nav class="navbar navbar-inverse">
-                <div class="col-sm-1 col-md-1 col-lg-2"></div>
-  <div class="container-fluid col-xs-11 col-sm-10 col-md-10 col-lg-9">
-                       
-                            
+                    <div class="col-sm-1 col-md-1 col-lg-2"></div>
+                    <div class="container-fluid col-xs-11 col-sm-10 col-md-10 col-lg-9">
+
+
                         <div class="navbar-header">
-                            
+
                             <a class="hidden-sm" href="#/" style="margin-left: 20px;">
-                                 <img id="logo" src="assets/images/logo-reader-gate.png" /></a>
-    </div>
+                                <img id="logo" src="assets/images/logo-reader-gate.png" /></a>
+                        </div>
 
                         <div class="" id="bs-example-navbar-collapse-1" style="margin-left:10px;">
                             <ul class="nav navbar-nav" id="allPagesNav">
                                 <li class="active hover-hand"><a ng-click="vm.backToSeries()">{{vm.title}}</a></li>
                                 <li class="divider"></li>
 
-                               <li>
+                                <li>
                                     <a class="dropdown-toggle" uib-dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">{{vm.layout}} <span class="caret"></span></a>
                                     <ul uib-dropdown-menu class="dropdown-menu" role="menu">
                                         <li class="hover-hand"><a ng-click="vm.onePageLayout()">One page</a></li>
-                                        <li  class="hover-hand"><a ng-click="vm.allPagesLayout()">All pages</a></li>
+                                        <li class="hover-hand"><a ng-click="vm.allPagesLayout()">All pages</a></li>
                                     </ul>
-</li>
-                                
+                                </li>
+
                                 <li><a class="hover-disable">Chapter: </a></li>
                                 <li>
                                     <select class="form-control chapter-dropbox" ng-change="vm.go(vm.selectedChapter.data._chapterId, vm.selectedChapter.name)" ng-model="vm.selectedChapter" class="chapter-select" ng-options="item.name for item in vm.chapList">
@@ -68,7 +68,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                            
+
                         </div>
                     </div>
                 </nav>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="chapter-pages hide-content" id="onePageImg">
-                        <img class="chapter-page" src={{vm.currentPage}} ng-click="vm.goNext()"/>
+                        <img class="chapter-page" src={{vm.currentPage}} ng-click="vm.goNext()" />
                     </div>
 
                     <!--

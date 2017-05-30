@@ -7,6 +7,7 @@
 
     /** @ngInject */
     function PaymentController($rootScope, $location, $scope, $timeout, bookService) {
+        
       var vm = this;
       vm.comicList = [];
 

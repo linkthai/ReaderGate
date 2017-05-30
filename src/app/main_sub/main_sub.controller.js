@@ -9,6 +9,7 @@
 
   /** @ngInject */
   function MainSubController($rootScope, $scope, $location) {
+      
     var vm = this;
 
     vm.text = '';

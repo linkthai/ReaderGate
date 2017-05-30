@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function SearchController($scope, $routeParams, $window, $location) {
+      
     var vm = this;
     vm.searchString = '';
     vm.searchString = $routeParams.param1;
