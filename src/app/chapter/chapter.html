@@ -2,21 +2,22 @@
 
     <md-content flex class=body>
 
-        <md-content class="mid-content" data-ng-controller="ChapterController as vm" style="width: 100%">
+        <md-content class="mid-content" data-ng-controller="ChapterController as vm">
             <headroom>
                 <nav class="navbar navbar-inverse">
-                    <div class="container-fluid" style="margin:auto; width: 90%;">
+                    <div class="col-sm-1 col-md-1 col-lg-2"></div>
+                    <div class="container-fluid col-xs-11 col-sm-10 col-md-10 col-lg-9">
 
 
                         <div class="navbar-header">
 
                             <a class="hidden-sm" href="#/" style="margin-left: 20px;">
-                                <img id="logo-bare" src="assets/images/logo.png" /></a>
+                                <img id="logo" src="assets/images/logo-reader-gate.png" /></a>
                         </div>
 
-                        <div class="" style="margin-left:10px;">
+                        <div class="" id="bs-example-navbar-collapse-1" style="margin-left:10px;">
                             <ul class="nav navbar-nav" id="allPagesNav">
-                                <li class="active hover-hand"><a ng-click="vm.backToSeries()" style="max-height: 60px"><md-icon class="main-icon-aligned"><i class="material-icons md-24" style="color: white;">arrow_back</i></md-icon> Back to title</a></li>
+                                <li class="active hover-hand"><a ng-click="vm.backToSeries()">{{vm.title}}</a></li>
                                 <li class="divider"></li>
 
                                 <li>
@@ -88,7 +89,7 @@
 
 
                     <div class="chapter-pages" id="allPagesImg">
-                        <div flex ng-repeat="page in chapPages" style="margin-top: 10px">
+                        <div flex ng-repeat="page in chapPages">
                             <img class="chapter-page" src={{page}}/>
                         </div>
                     </div>

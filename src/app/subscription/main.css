@@ -93,18 +93,3 @@
 .slide-image {
       width:120px; 
 }
-
-.panel_primary {
-      background:#06a872;
-}
-
-.panel_primary > a {
-      background:#06a872;
-}
-.panel > .panel-heading {
-      background:#06a872;
-
-}
-
-.panel-body {
-background:#06a872;}

@@ -145,15 +145,17 @@
             });
         }
 
-        vm.initSlider = function () {
-            // wait till load event fires so all resources are available
-            $('#custom_carousel').on('slide.bs.carousel', function (evt) {
-
-                $('#custom_carousel .controls li.active').removeClass('active');
-                $('#custom_carousel .controls li:eq(' + $(evt.relatedTarget).index() + ')').addClass('active');
-            });
-        };
-
-        vm.initSlider();
+//        vm.initSlider = function () {
+//
+//            // wait till load event fires so all resources are available
+//            $('#custom_carousel').on('slide.bs.carousel', function (evt) {
+//                console.log('in');
+//                $('#custom_carousel .controls li.active').removeClass('active');
+//                console.log($(evt.relatedTarget).index());
+//                $('#custom_carousel .controls li:eq(' + $(evt.relatedTarget).index() + ')').addClass('active');
+//            });
+//        };
+//
+//        vm.initSlider();
     }
 })();
